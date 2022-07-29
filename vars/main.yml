@@ -16,7 +16,7 @@ wordpress_archive: "{{ tmp_path }}/wordpress-{{ wordpress_version }}.tar.gz"
 wordpress_tmp_path: "{{ tmp_path }}/wordpress"
 upload_dir: "{{ www_path }}/wp-content/uploads"
 wp_url: "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
-username: "netology"
+username: "CHANGEME"
 nginx_path: "/etc/nginx/conf.d"
 www_path: "/var/www/html"
 
@@ -28,7 +28,7 @@ node_exporter_path_tmp: "{{ tmp_path }}/node_exporter-{{ node_exporter_version }
 systemd_path: "/etc/systemd/system"
 
 # default.conf.j2
-server_name: "www.test.lab"
+server_name: "CHANGEME"
 
 # wp-config.j2
-db_host: "10.20.100.151"
+db_host: "CHANGEME"

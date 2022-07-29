@@ -20,7 +20,7 @@ Role Variables
 | wordpress_tmp_path | temporary path | string | {{ tmp_path }}/wordpress |
 | upload_dir | wordpress upload directory | string | {{ www_path }}/wp-content/uploads |
 | wp_url | wp-cli download url | string | https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar |
-| username | username | string | changeme |
+| username | username | string | CHANGEME |
 | nginx_path | path to nginx config | string | /etc/nginx/conf.d |
 | www_path | path to webserver | string | /var/www/html |
 | arch | architecture  | string | linux-amd64 |
@@ -28,8 +28,8 @@ Role Variables
 | node_exporter_archive | downloaded archive | string | {{ tmp_path }}/node_exporter-{{ node_exporter_version }}.{{ arch }}.tar.gz |
 | node_exporter_path_tmp | temporary path | string | {{ tmp_path }}/node_exporter-{{ node_exporter_version }}.{{ arch }} |
 | systemd_path | systemd unit file path | string | /etc/systemd/system |
-| server_name | nginx server name | string | changeme |
-| db_host | mysql database ip address | string | changeme |
+| server_name | nginx server name | string | CHANGEME |
+| db_host | mysql database ip address | string | CHANGEME |
 
 
 Example Playbook
