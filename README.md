@@ -41,7 +41,7 @@ An example of using role:
 - name: Wordpress Provisioning
   hosts: wordpress
   roles:
-    - wordpress
+    - Wordpress-role
 ```
 
 
