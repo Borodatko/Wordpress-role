@@ -80,7 +80,7 @@
     recurse: yes
     mode: '0775'
   tags: wordpress
-    
+
 - name: Wordpress - Add user to group nginx
   become: true
   ansible.builtin.user:

@@ -1,5 +1,6 @@
 ---
 # handlers file for nginx
+
 - name: Reload daemon
   become: true
   ansible.builtin.systemd:
@@ -45,4 +46,3 @@
   ansible.builtin.systemd:
     name: node_exporter
     state: restarted
-
