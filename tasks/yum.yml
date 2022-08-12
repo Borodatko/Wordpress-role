@@ -27,6 +27,7 @@
   lineinfile:
     dest: /etc/yum.conf
     line: "http_caching=none"
+  tags: wordpress
 
 - name: Yum - Add Nginx Repo
   become: true
