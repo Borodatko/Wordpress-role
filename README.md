@@ -9,14 +9,14 @@ Role Variables
 | Name | Description | Type | Default Value|
 |------|-------------|------|---------|
 | ***defaults/main.yml*** |
-| bin_path | path to binary  | string | /usr/local/bin |
-| tmp_path | temporary path  | string | /tmp |
+| bin_path | path to binary | string | /usr/local/bin |
+| tmp_path | temporary path | string | /tmp |
 | ***yum.yml*** |
 | repo_url | remi repository url | string | http://rpms.remirepo.net/enterprise/remi-release-7.rpm |
 | repo_path | path to repositories directory | string | /etc/yum.repos.d |
 | rpm_package | remi rpm package | string | {{ tmp_path }}/remi-release-7.rpm |
 | ***php.yml*** |
-| fpm_path | php-rpm directory | string | /etc/php-fpm.d |
+| fpm_path | php-fpm directory | string | /etc/php-fpm.d |
 | php_path | php directory | string | /var/lib/php |
 | ***wordpress.yml*** |
 | wordpress_version | wordpress version | string | 6.0 |
@@ -24,7 +24,7 @@ Role Variables
 | wordpress_tmp_path | temporary path | string | {{ tmp_path }}/wordpress |
 | upload_dir | wordpress upload directory | string | {{ www_path }}/wp-content/uploads |
 | wp_url | wp-cli download url | string | https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar |
-| username | username | string | CHANGEME |
+| username | local admin user | string | centos |
 | nginx_path | path to nginx config | string | /etc/nginx/conf.d |
 | www_path | path to webserver configs | string | /var/www/html |
 | ***exporter.yml***|

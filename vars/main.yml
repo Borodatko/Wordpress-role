@@ -16,7 +16,7 @@ wordpress_archive: "{{ tmp_path }}/wordpress-{{ wordpress_version }}.tar.gz"
 wordpress_tmp_path: "{{ tmp_path }}/wordpress"
 upload_dir: "{{ www_path }}/wp-content/uploads"
 wp_url: "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
-username: "CHANGEME"
+username: "centos"
 nginx_path: "/etc/nginx/conf.d"
 www_path: "/var/www/html"
 
