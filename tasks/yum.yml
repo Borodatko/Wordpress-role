@@ -1,5 +1,26 @@
 ---
-# tasks file for wordpress
+
+- name: Yum - Upgrade packages
+  become: true
+  yum:
+    name: "*"
+    enablerepo: base,updates,extras
+    state: latest
+    update_cache: yes
+  tags:
+    - wordpress
+    - yum
+
+- name: Yum - Install packages
+  become: true
+  ansible.builtin.yum:
+    name:
+      - python36
+    enablerepo: base,updates,extras
+    state: latest
+  tags:
+    - wordpress
+    - yum
 
 - name: Yum - Install EPEL
   become: true
@@ -7,27 +28,35 @@
     name:
       - epel-release
     state: latest
-  tags: wordpress
+  tags:
+    - wordpress
+    - yum
 
 - name: Yum - Get Remi release
   ansible.builtin.get_url:
     url: "{{ repo_url }}"
     dest: "{{ rpm_package }}"
-  tags: wordpress
+  tags:
+    - wordpress
+    - yum
 
-- name: Yum - Install package
+- name: Yum - Install Remi Repo
   become: true
   ansible.builtin.yum:
     name: "{{ rpm_package }}"
     state: present
-  tags: wordpress
+  tags:
+    - wordpress
+    - yum
 
 - name: Yum - edit yum.conf
   become: yes
   lineinfile:
     dest: /etc/yum.conf
     line: "http_caching=none"
-  tags: wordpress
+  tags:
+    - wordpress
+    - yum
 
 - name: Yum - Add Nginx Repo
   become: true
@@ -35,7 +64,9 @@
     src: nginx-stable.repo.j2
     dest: "{{ repo_path }}/nginx-stable.repo"
     mode: '644'
-  tags: wordpress
+  tags:
+    - wordpress
+    - yum
 
 - name: Yum - Install Nginx
   become: true
@@ -44,7 +75,9 @@
       - nginx
     enablerepo: nginx-stable
     state: latest
-  tags: wordpress
+  tags:
+    - wordpress
+    - yum
 
 - name: Yum - Install PHP & Git Packages
   become: true
@@ -66,4 +99,6 @@
       - php-opcache
     enablerepo: base,remi-php72
     state: latest
-  tags: wordpress
+  tags:
+    - wordpress
+    - yum
