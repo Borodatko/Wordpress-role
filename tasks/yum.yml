@@ -1,12 +1,11 @@
 ---
-
 - name: Yum - Upgrade packages
   become: true
-  yum:
+  ansible.builtin.yum:
     name: "*"
     enablerepo: base,updates,extras
-    state: latest
-    update_cache: yes
+    state: present
+    update_cache: true
   tags:
     - wordpress
     - yum
@@ -17,7 +16,7 @@
     name:
       - python36
     enablerepo: base,updates,extras
-    state: latest
+    state: present
   tags:
     - wordpress
     - yum
@@ -27,7 +26,7 @@
   ansible.builtin.yum:
     name:
       - epel-release
-    state: latest
+    state: present
   tags:
     - wordpress
     - yum
@@ -36,6 +35,7 @@
   ansible.builtin.get_url:
     url: "{{ repo_url }}"
     dest: "{{ rpm_package }}"
+    mode: '0644'
   tags:
     - wordpress
     - yum
@@ -50,8 +50,8 @@
     - yum
 
 - name: Yum - edit yum.conf
-  become: yes
-  lineinfile:
+  become: true
+  ansible.builtin.lineinfile:
     dest: /etc/yum.conf
     line: "http_caching=none"
   tags:
@@ -74,7 +74,7 @@
     name:
       - nginx
     enablerepo: nginx-stable
-    state: latest
+    state: present
   tags:
     - wordpress
     - yum
@@ -98,7 +98,8 @@
       - php-json
       - php-opcache
     enablerepo: base,remi-php72
-    state: latest
+    state: present
   tags:
     - wordpress
     - yum
+...

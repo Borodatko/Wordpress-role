@@ -1,10 +1,10 @@
 ---
-
 - name: Wordpress - Get archive
   ansible.builtin.get_url:
     url: "http://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz"
     dest: "{{ tmp_path }}"
-  tags: 
+    mode: '0644'
+  tags:
     - wordpress
     - wp
 
@@ -12,7 +12,7 @@
   ansible.builtin.unarchive:
     src: "{{ wordpress_archive }}"
     dest: "{{ tmp_path }}"
-    remote_src: yes
+    remote_src: true
   tags:
     - wordpress
     - wp
@@ -44,7 +44,7 @@
   ansible.builtin.file:
     path: "{{ www_path }}"
     state: directory
-    recurse: yes
+    recurse: true
     owner: nginx
     group: nginx
   tags:
@@ -76,7 +76,7 @@
     - wp
 
 - name: Flush handlers
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: Wordpress - Get wp-cli
   become: true
@@ -93,7 +93,7 @@
   ansible.builtin.file:
     path: "{{ www_path }}"
     state: directory
-    recurse: yes
+    recurse: true
     mode: '0775'
   tags:
     - wordpress
@@ -118,3 +118,4 @@
   tags:
     - wordpress
     - wp
+...

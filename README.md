@@ -4,6 +4,12 @@ Wordpress
 Ansible role for WordPress installation & configuration.
 
 
+Dependencies
+------------
+
+ - RHEL7-based OS
+
+
 Role Variables
 --------------
 | Name | Description | Type | Default Value|
@@ -29,7 +35,7 @@ Role Variables
 | www_path | path to webserver configs | string | /var/www/html |
 | ***exporter.yml***|
 | arch | architecture  | string | linux-amd64 |
-| node_exporter_version | prometheus node exporter version | string | 1.3.1 |
+| exporter_version | prometheus node exporter version | string | 1.3.1 |
 | node_exporter_archive | downloaded archive | string | {{ tmp_path }}/node_exporter-{{ node_exporter_version }}.{{ arch }}.tar.gz |
 | node_exporter_path_tmp | temporary path | string | {{ tmp_path }}/node_exporter-{{ node_exporter_version }}.{{ arch }} |
 | systemd_path | systemd unit file path | string | /etc/systemd/system |

@@ -1,5 +1,4 @@
 ---
-
 - name: PHP - Copy config file
   become: true
   ansible.builtin.template:
@@ -15,7 +14,7 @@
   ansible.builtin.file:
     path: "{{ php_path }}"
     state: directory
-    recurse: yes
+    recurse: true
     group: nginx
   notify:
     - Restart php-fpm
@@ -24,4 +23,5 @@
     - php
 
 - name: Flush handlers
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
+...

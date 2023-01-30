@@ -3,3 +3,4 @@
 
 bin_path: "/usr/local/bin"
 tmp_path: "/tmp"
+...
